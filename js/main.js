@@ -169,4 +169,35 @@
         });
     });
   }
+  /* ---------- instagram live feed ---------- */
+  // If a widget snippet is configured, render the live auto-updating feed;
+  // otherwise leave the on-brand fallback grid (which links to the profile).
+  var ig = cfg.INSTAGRAM || {};
+  var igFeed = document.getElementById("igFeed");
+  function runEmbedScripts(container) {
+    // innerHTML does not execute <script> tags — re-create them so they run.
+    container.querySelectorAll("script").forEach(function (old) {
+      var sc = document.createElement("script");
+      if (old.src) sc.src = old.src; else sc.textContent = old.textContent;
+      sc.async = true;
+      old.parentNode.replaceChild(sc, old);
+    });
+  }
+  if (igFeed) {
+    if (ig.EMBED_HTML && ig.EMBED_HTML.trim()) {
+      igFeed.innerHTML = ig.EMBED_HTML;
+      runEmbedScripts(igFeed);
+    } else if (ig.LIGHTWIDGET_ID && ig.LIGHTWIDGET_ID.trim()) {
+      var id = ig.LIGHTWIDGET_ID.trim();
+      igFeed.innerHTML =
+        '<iframe src="https://lightwidget.com/widgets/' + id + '.html" ' +
+        'scrolling="no" allowtransparency="true" class="lightwidget-widget" ' +
+        'style="width:100%;border:0;overflow:hidden;"></iframe>';
+      var lw = document.createElement("script");
+      lw.src = "https://cdn.lightwidget.com/widgets/lightwidget.js";
+      lw.async = true;
+      document.body.appendChild(lw);
+    }
+  }
+
 })();

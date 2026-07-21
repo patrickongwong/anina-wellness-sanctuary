@@ -57,6 +57,45 @@ Short version:
    ```
 4. Commit & push. Bookings now land in the **Bookings** tab.
 
+## ✦ Live Instagram feed
+
+The "Follow along" section shows the sanctuary's Instagram and **auto-updates as
+you post** — once you connect a feed widget.
+
+**Why a widget?** A static site can't read an Instagram profile feed on its own:
+Instagram requires an access token, and a token must never live in a public repo.
+The standard, secure fix is a free widget service that holds the token for you and
+returns an embed you can paste in. (Until you add one, the section shows an
+on-brand grid of your photos that links to the profile — nothing looks broken.)
+
+**Setup (~3 min) — using [LightWidget](https://lightwidget.com), free:**
+1. Sign up, click **Create new widget**, and connect **@anina_wellness_sanctuary**.
+2. Style it if you like, then **Get code**. You'll get a snippet like:
+   ```html
+   <iframe src="//lightwidget.com/widgets/abc123def456.html" ...></iframe>
+   <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+   ```
+3. In [`js/config.js`](./js/config.js), put **either** the widget id **or** the whole snippet:
+   ```js
+   INSTAGRAM: {
+     // easiest: just the id from the iframe URL
+     LIGHTWIDGET_ID: "abc123def456",
+     // — or — paste any widget service's full embed here instead:
+     EMBED_HTML: "",
+   }
+   ```
+4. Commit & push. The live feed replaces the fallback grid and refreshes itself
+   as you post.
+
+`EMBED_HTML` accepts **any** widget's snippet — [Behold](https://behold.so),
+[SnapWidget](https://snapwidget.com), [Elfsight](https://elfsight.com),
+EmbedSocial, etc. — so you're not locked to one service. None of them put a
+secret in the repo; the service keeps the token.
+
+> Prefer the official Instagram Graph API instead? That needs a Business/Creator
+> account, a Meta app, and a server to store the long-lived token — it isn't
+> static-site-friendly, which is why the widget route is the default here.
+
 ## ✦ Deploy (GitHub Pages)
 
 The site is fully static, so no build is needed:
@@ -78,6 +117,7 @@ Everything is plain HTML/CSS — no framework to learn.
 | Colours, fonts, spacing | `css/styles.css` (design tokens in `:root`) |
 | Nav / gallery / form behaviour | `js/main.js` |
 | Booking endpoint | `js/config.js` |
+| Instagram feed widget | `js/config.js` (`INSTAGRAM`) |
 | Photos | replace files in `assets/images/` (keep the same names) |
 
 Design tokens live at the top of `css/styles.css`:

@@ -186,6 +186,23 @@ a { color: inherit; text-decoration: none; }
 .gallery__item--plan { background: var(--white); border: 1px solid var(--line); }
 .gallery__item--plan img { object-fit: contain; }
 
+/* ================= INSTAGRAM ================= */
+.instagram { }
+.ig__handle { color: var(--sage-deep); border-bottom: 1px solid currentColor; white-space: nowrap; }
+.ig__handle:hover { color: var(--clay); }
+.ig__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.8rem; }
+.ig__tile { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; border-radius: var(--radius); background: var(--paper-deep); }
+.ig__tile img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease), filter .5s; }
+.ig__tile:hover img { transform: scale(1.07); filter: brightness(0.82); }
+.ig__ov { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .4s var(--ease); }
+.ig__tile:hover .ig__ov { opacity: 1; }
+.ig__ov svg { width: 30px; height: 30px; fill: #fff; }
+.ig__cta { margin-top: 2.2rem; text-align: center; }
+.ig__cta .btn { gap: 0.6em; }
+.btn__ig { width: 18px; height: 18px; fill: currentColor; }
+/* live widget container (injected iframe from a widget service) */
+.ig__feed iframe { width: 1px; min-width: 100%; border: 0; display: block; }
+
 /* ================= MEMBERSHIP ================= */
 .membership { text-align: left; }
 .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
@@ -266,6 +283,7 @@ select { appearance: none; -webkit-appearance: none; }
 /* ================= RESPONSIVE ================= */
 @media (max-width: 980px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
+  .ig__grid { grid-template-columns: repeat(3, 1fr); }
   .tiers { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
   .section__grid { grid-template-columns: 1fr; }
   .philosophy__media { order: -1; }
@@ -285,6 +303,7 @@ select { appearance: none; -webkit-appearance: none; }
   .nav__toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .nav.is-solid .nav__toggle span, .nav__toggle.is-active span { background: var(--ink); }
   .cards { grid-template-columns: 1fr; }
+  .ig__grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
   .gallery__grid { column-count: 2; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
