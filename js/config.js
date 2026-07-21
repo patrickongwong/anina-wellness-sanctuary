@@ -9,6 +9,13 @@ window.ANINA_CONFIG = {
      (See apps-script/README-booking.md for the 5-minute setup.)
      Empty = DEMO MODE (validates + shows success, writes nowhere).
      --------------------------------------------------------- */
+  /* ---------------------------------------------------------
+     GOOGLE ANALYTICS (GA4) — tracks all pages, no domain needed.
+     Create a free GA4 property, then paste its Measurement ID
+     (looks like "G-XXXXXXXXXX") here. Empty = analytics off.
+     --------------------------------------------------------- */
+  GA_ID: "",
+
   BOOKING_ENDPOINT: "https://script.google.com/macros/s/AKfycbwJDOAPFb3DZ7baM7cz_chHoUTQeCMDNibSJbbvK4olDuDWBYxmd0Txs4QWCYZ6UJn-/exec",
 
   /* ---------------------------------------------------------

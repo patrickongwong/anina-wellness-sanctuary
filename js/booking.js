@@ -218,7 +218,8 @@
         return;
       }
       fetch(cfg.BOOKING_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
-        .then(function () { reset(true); setStatus("✓ Thank you, " + (data.name.split(" ")[0] || "") + "! We've got your " + n + " time" + plural + " — we'll confirm by email within one business day.", "is-ok"); })
+        .then(function () { reset(true); if (window.gtag) window.gtag("event", "booking_request", { source: SOURCE, slots: n });
+        setStatus("✓ Thank you, " + (data.name.split(" ")[0] || "") + "! We've got your " + n + " time" + plural + " — we'll confirm by email within one business day.", "is-ok"); })
         .catch(function () { reset(false); setStatus("Something went wrong. Please email hello@aninasanctuary.ph and we'll help.", "is-err"); });
     });
   }
