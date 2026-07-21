@@ -74,17 +74,37 @@
     </div>
   </section>
 
-  <!-- ============ BOOKING ============ -->
+  <!-- ============ BOOKING (calendar) ============ -->
   <section class="pp-section" id="book">
-    <div class="pp-book">
-      <div class="pp-book__aside reveal">
-        <p class="eyebrow"><span class="num">&#10022;</span> Start here</p>
-        <h2 class="pp-lead">Book your postpartum<br />core assessment.</h2>
-        <p class="pp-body" style="margin-top:1.1rem;">
-          One session to map your separation, your goals, and the safest path back to a
-          strong core. We'll confirm by email within one business day.
-        </p>
-        <dl class="pp-facts">
+    <div class="reveal" style="max-width:720px;margin-bottom:2rem;">
+      <p class="eyebrow"><span class="num">&#10022;</span> Start here</p>
+      <h2 class="pp-lead">Book your postpartum core assessment.</h2>
+      <p class="pp-body" style="margin-top:1rem;">Drag across the calendar to pick one or more times that suit you &mdash; we'll confirm by email within one business day.</p>
+    </div>
+
+    <div class="cal reveal" id="cal" data-source="postpartum-landing" data-form="ppForm" data-service-default="Postpartum core assessment">
+      <div class="cal__toolbar">
+        <div class="cal__nav">
+          <button class="cal__btn" id="calPrev" aria-label="Previous week" type="button">&#8249;</button>
+          <button class="cal__btn" id="calNext" aria-label="Next week" type="button">&#8250;</button>
+          <button class="cal__today" id="calToday" type="button">This week</button>
+        </div>
+        <div class="cal__range" id="calRange"></div>
+      </div>
+      <div class="cal__scroll">
+        <div class="cal__inner">
+          <div class="cal__head" id="calHead"></div>
+          <div class="cal__body" id="calBody"></div>
+        </div>
+      </div>
+      <p class="cal__hint">Drag down a column to select a longer block. Tap a block to remove it. Hatched slots are outside opening hours.</p>
+    </div>
+
+    <div class="book__grid book__grid--cal">
+      <div class="book__selected reveal">
+        <h3>Your selected times</h3>
+        <ul class="chips" id="calChips"><li class="chips__empty">Nothing selected yet &mdash; drag on the calendar above.</li></ul>
+        <dl class="pp-facts" style="margin-top:2rem;">
           <div><dt>Where</dt><dd>ANINA &middot; BF Homes, Para&ntilde;aque &mdash; or online</dd></div>
           <div><dt>Who it's for</dt><dd>Moms at any stage &mdash; 6 weeks to years postpartum</dd></div>
           <div><dt>Ask us</dt><dd>hello@aninasanctuary.ph</dd></div>
@@ -139,7 +159,6 @@
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="pp-footer">
     <div class="pp-footer__wrap">
       <div class="pp-footer__brand">
@@ -161,6 +180,7 @@
   </div>
 
   <script src="js/config.js"></script>
+  <script src="js/booking.js"></script>
   <script src="js/postpartum.js"></script>
 </body>
 </html>

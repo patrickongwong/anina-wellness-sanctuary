@@ -176,3 +176,18 @@ body.pp { background: var(--cream); }
 .pp-sticky p { color: var(--bone); font-family: var(--display); font-style: italic; font-size: 1.02rem; }
 .pp-sticky .btn { white-space: nowrap; }
 @media (max-width: 560px) { .pp-sticky p { display: none; } .pp-sticky { justify-content: center; } .pp-sticky .btn { width: 100%; } }
+
+/* =========================================================
+   Booking calendar on the postpartum page — rose accents
+   ========================================================= */
+.pp .cal__block { background: var(--rose-deep); box-shadow: 0 4px 10px -6px rgba(90,40,34,0.55); }
+.pp .cal__block:hover { background: var(--ink); }
+.pp .cal__block.is-prov { background: var(--rose); }
+.pp .cal__dayhead.is-today .dnum { background: var(--rose-deep); }
+.pp .cal__dayhead.is-today .dow { color: var(--rose-deep); }
+.pp .cal__col.is-today { background: rgba(185,117,106,0.05); }
+.pp .cal__cell.is-open:hover { background: rgba(185,117,106,0.12); }
+.pp .cal__now { background: var(--rose); }
+.pp .cal__now::before { background: var(--rose); }
+.pp .chip { border-left-color: var(--rose-deep); }
+.pp .cal__scroll, .pp .cal__head, .pp .cal__body { background: #fff; }
