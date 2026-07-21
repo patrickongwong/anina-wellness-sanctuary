@@ -41,6 +41,6 @@ window.ANINA_CONFIG = {
     // See README → "Option B: drive the feed from a Google Sheet".
     // Your sheet's CSV endpoint. It stays on the fallback grid until the
     // sheet is shared "Anyone with the link: Viewer" (or Published to web).
-    SHEET_CSV_URL: "https://docs.google.com/spreadsheets/d/15sIpVdIhmtOkBSVf_FKpqD4UGG-UgtTrj9z6fCaui0s/gviz/tq?tqx=out:csv&gid=0",
+    SHEET_CSV_URL: "https://docs.google.com/spreadsheets/d/1nR4OwXGJDkQSsKtomN-NoFZ1Dnr_CtTJj82hA1Qg0xA/gviz/tq?tqx=out:csv&gid=0",
   },
 };
