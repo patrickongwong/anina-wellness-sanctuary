@@ -141,3 +141,38 @@ body.pp { background: var(--cream); }
   .pp-form .field-row { grid-template-columns: 1fr; gap: 0; }
   .pp-bar__brand span { display: none; }
 }
+
+/* =========================================================
+   POSTER MODE — snappy, CTA-forward layout
+   ========================================================= */
+.pp-hero h1.poster { font-size: clamp(2.7rem, 7vw, 5.4rem); }
+.pp-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.7rem; }
+.pp-chip { border: 1px solid rgba(255,255,255,0.4); color: #fff; border-radius: 100px; padding: 0.5em 1.15em; font-size: 0.82rem; letter-spacing: 0.02em; backdrop-filter: blur(4px); }
+.btn--xl { padding: 1.15em 2.7em; font-size: 1.05rem; }
+.pp-cta-row { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; margin-top: 2.2rem; }
+.pp-cta-row .ghostlink { color: rgba(255,255,255,0.9); font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 2px; }
+.pp-trust { margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.72); }
+
+/* proof strip */
+.pp-strip { background: var(--ink); color: var(--bone); }
+.pp-strip__wrap { max-width: 920px; margin: 0 auto; padding: clamp(3.2rem,7vw,5.5rem) clamp(1.25rem,5vw,4rem); text-align: center; }
+.pp-strip h2 { font-family: var(--display); font-weight: 300; font-size: clamp(1.7rem,3.8vw,2.7rem); line-height: 1.15; letter-spacing: -0.01em; max-width: 22ch; margin: 0 auto; }
+.pp-strip h2 em { font-style: italic; color: var(--blush); }
+.pp-mini-steps { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem 2.6rem; margin-top: 2.1rem; }
+.pp-mini-step { display: flex; align-items: baseline; gap: 0.55rem; }
+.pp-mini-step b { font-family: var(--display); font-style: italic; color: var(--blush); font-size: 1.15rem; }
+.pp-mini-step span { color: rgba(244,241,234,0.88); font-size: 1rem; }
+.pp-strip__quote { margin-top: 2.6rem; font-family: var(--display); font-style: italic; font-size: clamp(1.1rem,2.2vw,1.35rem); color: #fff; }
+.pp-strip__quote small { display: block; margin-top: 0.6rem; font-family: var(--sans); font-style: normal; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.72rem; color: var(--blush); }
+.pp-coachline { margin-top: 2.4rem; display: inline-flex; align-items: center; gap: 0.9rem; text-align: left; }
+.pp-coachline img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; object-position: top; }
+.pp-coachline p { font-size: 0.9rem; color: rgba(244,241,234,0.82); max-width: 34ch; }
+.pp-coachline b { color: var(--bone); }
+.pp-strip .btn { margin-top: 2.6rem; }
+
+/* sticky bottom CTA */
+.pp-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.8rem clamp(1rem,4vw,2.2rem); background: rgba(34,31,26,0.97); backdrop-filter: blur(8px); box-shadow: 0 -6px 24px -12px rgba(0,0,0,0.5); transform: translateY(130%); transition: transform .45s var(--ease); }
+.pp-sticky.is-shown { transform: none; }
+.pp-sticky p { color: var(--bone); font-family: var(--display); font-style: italic; font-size: 1.02rem; }
+.pp-sticky .btn { white-space: nowrap; }
+@media (max-width: 560px) { .pp-sticky p { display: none; } .pp-sticky { justify-content: center; } .pp-sticky .btn { width: 100%; } }

@@ -95,4 +95,18 @@
         });
     });
   }
+  /* sticky CTA bar — show past the hero, hide when the form is on screen */
+  var sticky = document.getElementById("ppSticky");
+  var bookEl = document.getElementById("ppForm");
+  function toggleSticky() {
+    if (!sticky || !bookEl) return;
+    var pastHero = window.scrollY > window.innerHeight * 0.7;
+    var r = bookEl.getBoundingClientRect();
+    var bookOnScreen = r.top < window.innerHeight * 0.75 && r.bottom > 0;
+    sticky.classList.toggle("is-shown", pastHero && !bookOnScreen);
+  }
+  window.addEventListener("scroll", toggleSticky, { passive: true });
+  window.addEventListener("resize", toggleSticky);
+  toggleSticky();
+
 })();
