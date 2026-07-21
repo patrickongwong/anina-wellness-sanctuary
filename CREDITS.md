@@ -16,3 +16,9 @@ permission. © ANINA Wellness Sanctuary.
 | `gallery-3.jpg` | Interior zoning render — mobility, lounge, recovery |
 
 Images were resized and compressed for web from the originals.
+
+## Postpartum landing page (`postpartum.html`)
+
+Photos of Coach Joycee (`coach-hero.jpg`, `coach-joycee.jpg`, `define-core.jpg`)
+are her own brand photography, from <https://coachjoyceebautista.com>, used with
+permission for ANINA's coaching landing page. © Coach Joycee Bautista.
