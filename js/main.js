@@ -77,98 +77,9 @@
   if (lb) lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
 
-  /* ---------- min date = today ---------- */
-  var dateInput = document.getElementById("date");
-  if (dateInput) {
-    var t = new Date();
-    var iso = t.getFullYear() + "-" +
-      String(t.getMonth() + 1).padStart(2, "0") + "-" +
-      String(t.getDate()).padStart(2, "0");
-    dateInput.min = iso;
-  }
-
-  /* ---------- booking form ---------- */
-  var form = document.getElementById("bookingForm");
-  var status = document.getElementById("formStatus");
-  var submitBtn = document.getElementById("submitBtn");
+  /* booking form + calendar handled in js/booking.js */
   var cfg = window.ANINA_CONFIG || {};
 
-  function setStatus(msg, kind) {
-    status.textContent = msg;
-    status.classList.remove("is-ok", "is-err");
-    if (kind) status.classList.add(kind);
-  }
-
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-
-      var data = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        service: form.service.value,
-        date: form.date.value,
-        time: form.time.value,
-        notes: form.notes.value.trim(),
-        submittedAt: new Date().toISOString(),
-        source: "website",
-      };
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending…";
-      setStatus("");
-
-      // DEMO MODE — no endpoint configured yet
-      if (!cfg.BOOKING_ENDPOINT) {
-        setTimeout(function () {
-          setStatus(
-            "✓ Demo mode — request captured locally. Wire up Google Sheets to go live (see README).",
-            "is-ok"
-          );
-          form.reset();
-          if (dateInput) dateInput.value = "";
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Request Booking";
-        }, 700);
-        return;
-      }
-
-      // LIVE — post to Google Apps Script Web App.
-      // Apps Script Web Apps don't return CORS headers for browser fetch,
-      // so we send as text/plain (a "simple" request) and don't read the body.
-      fetch(cfg.BOOKING_ENDPOINT, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(data),
-      })
-        .then(function () {
-          setStatus(
-            "✓ Thank you, " + data.name.split(" ")[0] +
-            "! Your request is in — we'll confirm by email within one business day.",
-            "is-ok"
-          );
-          form.reset();
-          if (dateInput) dateInput.value = "";
-        })
-        .catch(function () {
-          setStatus(
-            "Something went wrong sending your request. Please email hello@aninasanctuary.ph and we'll sort it out.",
-            "is-err"
-          );
-        })
-        .finally(function () {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Request Booking";
-        });
-    });
-  }
   /* ---------- instagram live feed ---------- */
   // If a widget snippet is configured, render the live auto-updating feed;
   // otherwise leave the on-brand fallback grid (which links to the profile).

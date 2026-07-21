@@ -29,17 +29,27 @@ function doPost(e) {
     }
 
     var sheet = getSheet_();
-    sheet.appendRow([
-      new Date(),
-      payload.name || '',
-      payload.email || '',
-      payload.phone || '',
-      payload.service || '',
-      payload.date || '',
-      payload.time || '',
-      payload.notes || '',
-      payload.source || 'website'
-    ]);
+    var ts = new Date();
+    // Calendar booking sends a `slots` array — one sheet row per selected slot.
+    var slots = (payload.slots && payload.slots.length) ? payload.slots : null;
+    if (slots) {
+      for (var i = 0; i < slots.length; i++) {
+        var sl = slots[i];
+        sheet.appendRow([
+          ts, payload.name || '', payload.email || '', payload.phone || '',
+          payload.service || '', sl.date || '',
+          (sl.start || '') + (sl.end ? ' - ' + sl.end : ''),
+          payload.notes || '', payload.source || 'website'
+        ]);
+      }
+    } else {
+      sheet.appendRow([
+        ts, payload.name || '', payload.email || '', payload.phone || '',
+        payload.service || '', payload.date || '',
+        payload.time || (payload.slotsText || ''),
+        payload.notes || '', payload.source || 'website'
+      ]);
+    }
 
     if (NOTIFY_EMAIL) {
       MailApp.sendEmail({
@@ -52,8 +62,7 @@ function doPost(e) {
           'Email:   ' + (payload.email || ''),
           'Phone:   ' + (payload.phone || ''),
           'Service: ' + (payload.service || ''),
-          'Date:    ' + (payload.date || ''),
-          'Time:    ' + (payload.time || ''),
+          'When:    ' + (payload.slotsText || ((payload.date||'') + ' ' + (payload.time||''))),
           'Notes:   ' + (payload.notes || ''),
         ].join('\n')
       });

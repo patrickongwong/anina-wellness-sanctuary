@@ -228,18 +228,37 @@
 
   <!-- ================= BOOKING ================= -->
   <section class="section book" id="book">
-    <div class="book__grid">
-      <div class="book__aside reveal">
-        <p class="eyebrow"><span class="num">05</span> Book a Visit</p>
-        <h2 class="h2">Come feel the difference.</h2>
-        <p class="body">
-          Reserve an introductory session or a sanctuary tour. Tell us when suits you —
-          we'll confirm by email within one business day.
-        </p>
-        <dl class="book__facts">
-          <div><dt>Where</dt><dd>BF Homes, Parañaque<br />South Metro Manila</dd></div>
-          <div><dt>Hours</dt><dd>Mon–Sat · 6:00am – 9:00pm<br />Sun · 7:00am – 1:00pm</dd></div>
-          <div><dt>Ask us</dt><dd>hello@aninasanctuary.ph</dd></div>
+    <div class="section__head reveal">
+      <p class="eyebrow"><span class="num">05</span> Book a Visit</p>
+      <h2 class="h2">Pick your times.</h2>
+      <p class="body-lg section__intro">Drag across the calendar to block one or more times &mdash; just like your own planner. Then tell us where to reach you, and we'll confirm within one business day.</p>
+    </div>
+
+    <div class="cal reveal" id="cal">
+      <div class="cal__toolbar">
+        <div class="cal__nav">
+          <button class="cal__btn" id="calPrev" aria-label="Previous week" type="button">&#8249;</button>
+          <button class="cal__btn" id="calNext" aria-label="Next week" type="button">&#8250;</button>
+          <button class="cal__today" id="calToday" type="button">This week</button>
+        </div>
+        <div class="cal__range" id="calRange"></div>
+      </div>
+      <div class="cal__scroll">
+        <div class="cal__inner">
+          <div class="cal__head" id="calHead"></div>
+          <div class="cal__body" id="calBody"></div>
+        </div>
+      </div>
+      <p class="cal__hint">Drag down a column to select a longer block. Tap a block to remove it. Hatched slots are outside opening hours.</p>
+    </div>
+
+    <div class="book__grid book__grid--cal">
+      <div class="book__selected reveal">
+        <h3>Your selected times</h3>
+        <ul class="chips" id="calChips"><li class="chips__empty">Nothing selected yet &mdash; drag on the calendar above.</li></ul>
+        <dl class="book__facts" style="margin-top:2rem;">
+          <div><dt>Where</dt><dd>BF Homes, Para&ntilde;aque<br />South Metro Manila</dd></div>
+          <div><dt>Hours</dt><dd>Mon&ndash;Sat &middot; 6:00am&ndash;9:00pm<br />Sun &middot; 7:00am&ndash;1:00pm</dd></div>
         </dl>
       </div>
 
@@ -261,7 +280,7 @@
         <div class="field">
           <label for="service">I'm interested in</label>
           <div class="select-wrap">
-            <select id="service" name="service" required>
+            <select id="service" name="service">
               <option value="" disabled selected>Choose an experience</option>
               <option>Introductory session</option>
               <option>Sanctuary tour</option>
@@ -272,29 +291,10 @@
             </select>
           </div>
         </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="date">Preferred date</label>
-            <input type="date" id="date" name="date" required />
-          </div>
-          <div class="field">
-            <label for="time">Preferred time</label>
-            <div class="select-wrap">
-              <select id="time" name="time" required>
-                <option value="" disabled selected>Select</option>
-                <option>Morning (6am–10am)</option>
-                <option>Midday (10am–2pm)</option>
-                <option>Afternoon (2pm–6pm)</option>
-                <option>Evening (6pm–9pm)</option>
-              </select>
-            </div>
-          </div>
-        </div>
         <div class="field">
           <label for="notes">Anything we should know? <span class="opt">(optional)</span></label>
-          <textarea id="notes" name="notes" rows="3" placeholder="Goals, injuries, questions…"></textarea>
+          <textarea id="notes" name="notes" rows="2" placeholder="Goals, injuries, questions&hellip;"></textarea>
         </div>
-
         <button type="submit" class="btn btn--solid btn--full" id="submitBtn">Request Booking</button>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         <p class="form-privacy">By submitting you agree to be contacted about your visit. We never share your details.</p>
@@ -368,5 +368,6 @@
 
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
 </body>
 </html>
