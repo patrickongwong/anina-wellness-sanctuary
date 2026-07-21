@@ -10,3 +10,6 @@
 # logs / tmp
 *.log
 assets/images/*.log
+
+# local harness settings
+.claude/

@@ -59,13 +59,14 @@ Short version:
 
 ## ✦ Deploy (GitHub Pages)
 
-This repo ships a workflow at [`.github/workflows/pages.yml`](./.github/workflows/pages.yml).
+The site is fully static, so no build is needed:
 
-1. Push to GitHub.
-2. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
-3. Every push to `main` publishes to `https://<user>.github.io/<repo>/`.
+1. Push to GitHub (already done if you cloned this repo).
+2. **Settings → Pages → Build and deployment → Source: _Deploy from a branch_.**
+3. Branch: **`main`**, folder: **`/ (root)`** → **Save**.
+4. In a minute it publishes to `https://<user>.github.io/<repo>/`.
 
-(Or just drag the folder onto Netlify — it's fully static.)
+(Or just drag the folder onto Netlify / Cloudflare Pages — it's fully static.)
 
 ## ✦ Editing content
 
@@ -99,7 +100,6 @@ anina-wellness-sanctuary/
 ├── apps-script/
 │   ├── Code.gs                # Google Sheets backend
 │   └── README-booking.md      # setup guide
-├── .github/workflows/pages.yml
 ├── CREDITS.md
 └── README.md
 ```
