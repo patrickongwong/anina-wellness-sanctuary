@@ -14,7 +14,7 @@ window.ANINA_CONFIG = {
      Create a free GA4 property, then paste its Measurement ID
      (looks like "G-XXXXXXXXXX") here. Empty = analytics off.
      --------------------------------------------------------- */
-  GA_ID: "",
+  GA_ID: "G-9KR0EK2VJQ",
 
   BOOKING_ENDPOINT: "https://script.google.com/macros/s/AKfycbwJDOAPFb3DZ7baM7cz_chHoUTQeCMDNibSJbbvK4olDuDWBYxmd0Txs4QWCYZ6UJn-/exec",
 
