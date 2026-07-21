@@ -178,12 +178,13 @@ a { color: inherit; text-decoration: none; }
 .card__body p { font-size: 0.92rem; color: var(--ink-mute); line-height: 1.6; }
 
 /* ================= GALLERY ================= */
-.gallery__grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 220px; gap: 1rem; }
-.gallery__item { position: relative; overflow: hidden; border-radius: var(--radius); border: 0; padding: 0; cursor: zoom-in; background: var(--paper-deep); }
-.gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease), filter .5s; }
-.gallery__item:hover img { transform: scale(1.07); filter: brightness(1.03); }
-.gallery__item--tall { grid-row: span 2; }
-.gallery__item--wide { grid-column: span 2; }
+.gallery__grid { column-count: 3; column-gap: 1rem; }
+.gallery__item { position: relative; display: block; width: 100%; margin: 0 0 1rem; overflow: hidden; border-radius: var(--radius); border: 0; padding: 0; cursor: zoom-in; background: var(--paper-deep); break-inside: avoid; -webkit-column-break-inside: avoid; line-height: 0; }
+.gallery__item img { width: 100%; height: auto; object-fit: cover; transition: transform .8s var(--ease), filter .5s; }
+.gallery__item:hover img { transform: scale(1.04); filter: brightness(1.03); }
+/* architectural floor-plan renders: show in full on a soft ground */
+.gallery__item--plan { background: var(--white); border: 1px solid var(--line); }
+.gallery__item--plan img { object-fit: contain; }
 
 /* ================= MEMBERSHIP ================= */
 .membership { text-align: left; }
@@ -284,8 +285,7 @@ select { appearance: none; -webkit-appearance: none; }
   .nav__toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .nav.is-solid .nav__toggle span, .nav__toggle.is-active span { background: var(--ink); }
   .cards { grid-template-columns: 1fr; }
-  .gallery__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
-  .gallery__item--wide { grid-column: span 2; }
+  .gallery__grid { column-count: 2; }
   .field-row { grid-template-columns: 1fr; gap: 0; }
   .footer__inner { grid-template-columns: 1fr; gap: 2rem; }
   .footer__base { justify-content: flex-start; }

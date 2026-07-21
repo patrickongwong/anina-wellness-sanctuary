@@ -23,9 +23,9 @@ ship it without a toolchain.
 - **Sections** — Hero · Philosophy · Programs · The Space (gallery) ·
   Membership · Booking · Contact.
 
-> **Images are placeholders.** They're license-clean photos sourced via
-> [Openverse](https://openverse.org) for demonstration and should be swapped for
-> ANINA's own photography before launch. See [`CREDITS.md`](./CREDITS.md).
+> **Imagery** is ANINA Wellness Sanctuary's own photography and architectural
+> renders (see [`CREDITS.md`](./CREDITS.md)). Drop new shots into
+> `assets/images/` using the same filenames to update them.
 
 ## ✦ Quick start (local preview)
 
