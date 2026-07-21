@@ -68,6 +68,8 @@ The standard, secure fix is a free widget service that holds the token for you a
 returns an embed you can paste in. (Until you add one, the section shows an
 on-brand grid of your photos that links to the profile — nothing looks broken.)
 
+### Option A — a feed widget (auto-pulls from Instagram)
+
 **Setup (~3 min) — using [LightWidget](https://lightwidget.com), free:**
 1. Sign up, click **Create new widget**, and connect **@anina_wellness_sanctuary**.
 2. Style it if you like, then **Get code**. You'll get a snippet like:
@@ -91,6 +93,33 @@ on-brand grid of your photos that links to the profile — nothing looks broken.
 [SnapWidget](https://snapwidget.com), [Elfsight](https://elfsight.com),
 EmbedSocial, etc. — so you're not locked to one service. None of them put a
 secret in the repo; the service keeps the token.
+
+### Option B — a Google Sheet (manual, no backend) ✅ already wired
+
+Keep a Google Sheet of posts; the browser reads it live. This site is already
+pointed at your sheet in [`js/config.js`](./js/config.js) (`INSTAGRAM.SHEET_CSV_URL`),
+so you only need to (1) fill it in and (2) make it readable.
+
+1. **Columns** (row 1 = headers): `image` &#124; `caption` &#124; `link`
+   - **image** (required) — a direct, public image URL ending in `.jpg`/`.png`,
+     as **plain text** in the cell (not an inserted picture, not `=IMAGE()`).
+   - **caption** (optional) — used as hover/alt text.
+   - **link** (optional) — the Instagram post URL the tile opens.
+2. **Make it readable:** *Share → General access → Anyone with the link → Viewer*
+   (or *File → Share → Publish to web*). Until you do, the site shows the fallback grid.
+3. Done — the first ~12 rows become the feed and refresh on their own (Google
+   caches the CSV for a few minutes).
+
+**Where do the images come from?** Instagram's own image URLs (`scontent…`) will
+*display* but expire after a while, so for durability host the images on Google
+Drive (public link), in this repo's `assets/images/`, or any image host, and put
+those URLs in the sheet.
+
+To use a different sheet/tab, set `SHEET_CSV_URL` to
+`https://docs.google.com/spreadsheets/d/<ID>/gviz/tq?tqx=out:csv&gid=<GID>`.
+
+**Priority** if more than one is set: `EMBED_HTML` → `LIGHTWIDGET_ID` →
+`SHEET_CSV_URL` → fallback grid.
 
 > Prefer the official Instagram Graph API instead? That needs a Business/Creator
 > account, a Meta app, and a server to store the long-lived token — it isn't

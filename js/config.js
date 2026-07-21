@@ -34,5 +34,13 @@ window.ANINA_CONFIG = {
     PROFILE_URL: "https://www.instagram.com/anina_wellness_sanctuary/",
     EMBED_HTML: "",
     LIGHTWIDGET_ID: "",
+
+    // --- Google Sheet as the image source (no Instagram login needed) ---
+    // Publish a sheet to the web as CSV and paste that URL here. Columns
+    // (with a header row): image | caption | link  — only "image" is required.
+    // See README → "Option B: drive the feed from a Google Sheet".
+    // Your sheet's CSV endpoint. It stays on the fallback grid until the
+    // sheet is shared "Anyone with the link: Viewer" (or Published to web).
+    SHEET_CSV_URL: "https://docs.google.com/spreadsheets/d/15sIpVdIhmtOkBSVf_FKpqD4UGG-UgtTrj9z6fCaui0s/gviz/tq?tqx=out:csv&gid=0",
   },
 };
