@@ -9,7 +9,7 @@ window.ANINA_CONFIG = {
      (See apps-script/README-booking.md for the 5-minute setup.)
      Empty = DEMO MODE (validates + shows success, writes nowhere).
      --------------------------------------------------------- */
-  BOOKING_ENDPOINT: "",
+  BOOKING_ENDPOINT: "https://script.google.com/macros/s/AKfycbwJDOAPFb3DZ7baM7cz_chHoUTQeCMDNibSJbbvK4olDuDWBYxmd0Txs4QWCYZ6UJn-/exec",
 
   /* ---------------------------------------------------------
      INSTAGRAM — live "Follow along" feed
